@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import logo from "../../src/assets/logo2.png";
 
 const NavBar = () => {
@@ -24,29 +25,29 @@ const NavBar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-blue-500 rounded-box w-52">
             <li>
-              <a>Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <a>Services</a>
             </li>
             <li>
-              <a>Login</a>
+              <Link to="/login">Login</Link>
             </li>
           </ul>
         </div>
         <img className="w-25 h-16" src={logo} alt="" />
-        <a className="text-xl font-bold hover:text-green-600">BookStores</a>
+        <a className="text-xl font-bold hover:text-green-600">BookStore</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <a>Services</a>
           </li>
           <li>
-            <a>Login</a>
+            <Link to="/login">Login</Link>
           </li>
         </ul>
       </div>
