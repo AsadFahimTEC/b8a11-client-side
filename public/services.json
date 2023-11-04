@@ -1,0 +1,38 @@
+[
+    {
+        "service_id": 1,
+        "service_name": "Book Recommendation Service",
+        "service_description": "Get personalized book recommendations tailored to your reading preferences.",
+        "service_image_url": "https://i.ibb.co/s51w4CK/photo-1474291102916-622af5ff18bb-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+        "provider_name": "Bookworm Haven",
+        "provider_image_url": "https://i.ibb.co/Fg81hdG/photo-1494809610410-160faaed4de0-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+        "service_price": "$9.99"
+    },
+    {
+        "service_id": 2,
+        "service_name": "Literary Events Calendar",
+        "service_description": "Stay updated on upcoming book-related events and author signings in your area.",
+        "service_image_url": "https://i.ibb.co/2j0XNVG/photo-1482451111823-78eb84149f67-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+        "provider_name": "Readers' Paradise Events",
+        "provider_image_url": "https://i.ibb.co/Lg7rCRV/premium-photo-1663099949677-62bd40b6418a-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend.jpg",
+        "service_price": "Free"
+    },
+    {
+        "service_id": 3,
+        "service_name": "Book Club Subscription",
+        "service_description": "Join our monthly book club and receive a carefully selected book and discussion materials.",
+        "service_image_url": "https://i.ibb.co/593Fwv5/premium-photo-1663099672816-216f4cf67abb-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend.jpg",
+        "provider_name": "Book Club Delights",
+        "provider_image_url": "https://i.ibb.co/YtNBmtL/photo-1491841573634-28140fc7ced7-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+        "service_price": "$19.99/month"
+    },
+    {
+        "service_id": 4,
+        "service_name": "Bookstore Loyalty Program",
+        "service_description": "Earn rewards and discounts on your purchases with our exclusive loyalty program.",
+        "service_image_url": "https://i.ibb.co/gZcCPgK/photo-1523240661912-7852d1156cee-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+        "provider_name": "Readers' Rewards Store",
+        "provider_image_url": "https://i.ibb.co/qp4h0MR/photo-1474932430478-367dbb6832c1-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+        "service_price": "Free"
+    }
+]
