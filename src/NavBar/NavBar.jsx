@@ -35,7 +35,7 @@ const NavBar = () => {
           </ul>
         </div>
         <img className="w-25 h-16" src={logo} alt="" />
-        <a className="text-xl font-bold hover:text-green-600">BookStore</a>
+        <a className="text-xl font-bold hover:text-green-600">BookStores</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
