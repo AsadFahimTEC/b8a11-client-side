@@ -58,11 +58,11 @@ const AllServices = ({service}) => {
             <img src={provider_image_url} className="w-35 h-16 rounded" />
           </div>
           <div>
-            {/* <Link to="/"> */}
-            <button className="bg-[red] hover:bg-[green] font-avenir text-[white] rounded px-5 py-2">
-              View Details
-            </button>
-            {/* </Link> */}
+            <Link to={`/service/${service_id}`}>
+              <button className="bg-[red] hover:bg-[green] font-avenir text-[white] rounded px-5 py-2">
+                View Details
+              </button>
+            </Link>
           </div>
         </div>
       </div>

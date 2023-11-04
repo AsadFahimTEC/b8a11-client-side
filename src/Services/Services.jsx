@@ -19,7 +19,7 @@ const Services = () => {
             <p className="text-center text-red-500">No data found.</p>
           ) : (
             services?.map((service) => (
-              <AllServices key={service.id} service={service} />
+              <AllServices key={service.service_id} service={service} />
             ))
           )}
         </div>

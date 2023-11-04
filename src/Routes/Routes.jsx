@@ -3,6 +3,8 @@ import Home from "../Home/Home";
 import Login from "../Login/Login";
 import Registration from "../Registration/Registration";
 import Root from "../Layout/Root";
+import Service from "../Service/Service";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,15 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Registration></Registration>,
+      },
+      {
+        path: "/service/:service_id",
+        element: (
+          <PrivateRoute>
+            <Service></Service>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("/services.json"),
       },
     ],
   },
