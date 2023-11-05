@@ -6,7 +6,7 @@ const Services = () => {
   const initialServices = useLoaderData();
   const [services, setServices] = useState(initialServices);
 
-  console.log(initialServices);
+  //   console.log(initialServices);
 
   return (
     <div>
@@ -23,6 +23,9 @@ const Services = () => {
             ))
           )}
         </div>
+        <button className="bg-[green] hover:bg-[blue] font-avenir text-[white] rounded px-5 py-2">
+          Show All
+        </button>
       </div>
     </div>
   );
