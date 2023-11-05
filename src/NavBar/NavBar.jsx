@@ -98,14 +98,14 @@ const NavBar = () => {
                       <ul className="p-2">
                         <li>
                           <a
-                            href="/myservices"
+                            href="/services"
                             className="block px-4 py-2 text-black">
                             My Services
                           </a>
                         </li>
                         <li>
                           <a
-                            href="/addservices"
+                            href="/addproduct"
                             className="block px-4 py-2 text-black">
                             Add Services
                           </a>

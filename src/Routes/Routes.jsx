@@ -7,6 +7,7 @@ import Service from "../Service/Service";
 import PrivateRoute from "./PrivateRoute";
 import AllService from "../AllService/AllService";
 import SingleService from "../SingleService/SingleService";
+import AddProduct from "../AddProduct/AddProduct";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,15 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: () => fetch("/services.json"),
+      },
+      {
+        path: "/addproduct",
+        element: (
+          <PrivateRoute>
+            <AddProduct></AddProduct>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/brands"),
       },
       {
         path: "/login",
