@@ -1,20 +1,14 @@
-// import {useEffect} from "react";
 import {Link} from "react-router-dom";
-// import "aos/dist/aos.css";
-// import Aos from "aos";
 
-const AllServices = ({service}) => {
-  //   useEffect(() => {
-  //     Aos.init({duration: 2000});
-  //   }, []);
-
+const AllServiceList = ({service}) => {
   const {
-    service_id,
+    service_image,
     service_name,
     service_description,
-    service_image_url,
-    provider_image_url,
-    provider_name,
+    service_provider_image,
+    service_provider_name,
+    service_area,
+    service_id,
     service_price,
   } = service || {};
 
@@ -24,7 +18,7 @@ const AllServices = ({service}) => {
         className="relative flex w-76 h-76 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
         data-aos="zoom-out-down">
         <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
-          <img src={service_image_url} className="h-full w-full object-cover" />
+          <img src={service_image} className="h-full w-full object-cover" />
         </div>
         <div className="p-6">
           <div className="mb-2 flex items-center justify-between">
@@ -52,13 +46,13 @@ const AllServices = ({service}) => {
           </div>
           <div className="mb-2 flex items-center justify-between">
             <h3 className="mt-2 block text-blue-500 text-xl font-bebasneue font-bold leading-normal antialiased p-[2px] mb-2">
-              {provider_name}
+              {service_provider_name}
             </h3>
 
-            <img src={provider_image_url} className="w-35 h-16 rounded" />
+            <img src={service_provider_image} className="w-35 h-16 rounded" />
           </div>
           <div>
-            <Link to={`/service/${service_id}`}>
+            <Link to={`/services/${service_id}`}>
               <button className="bg-[red] hover:bg-[green] font-avenir text-[white] rounded px-5 py-2">
                 View Details
               </button>
@@ -70,4 +64,4 @@ const AllServices = ({service}) => {
   );
 };
 
-export default AllServices;
+export default AllServiceList;

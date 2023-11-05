@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {useLoaderData} from "react-router-dom";
+import {Link, useLoaderData} from "react-router-dom";
 import AllServices from "./AllServices";
 
 const Services = () => {
@@ -23,9 +23,11 @@ const Services = () => {
             ))
           )}
         </div>
-        <button className="bg-[green] hover:bg-[blue] font-avenir text-[white] rounded px-5 py-2">
-          Show All
-        </button>
+        <Link to="/services">
+          <button className="bg-[green] hover:bg-[blue] font-avenir text-[white] rounded px-5 py-2">
+            Show All
+          </button>
+        </Link>
       </div>
     </div>
   );

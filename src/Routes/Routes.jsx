@@ -5,6 +5,8 @@ import Registration from "../Registration/Registration";
 import Root from "../Layout/Root";
 import Service from "../Service/Service";
 import PrivateRoute from "./PrivateRoute";
+import AllService from "../AllService/AllService";
+import SingleService from "../SingleService/SingleService";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,16 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () => fetch("/services.json"),
+      },
+      {
+        path: "/services",
+        element: <AllService></AllService>,
+        loader: () => fetch("/AllService.json"),
+      },
+      {
+        path: "/services/:service_id",
+        element: <SingleService></SingleService>,
+        loader: () => fetch("/AllService.json"),
       },
     ],
   },

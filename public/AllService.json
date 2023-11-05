@@ -1,0 +1,62 @@
+[
+    {
+        "service_id": 1,
+        "service_image": "https://i.ibb.co/0KHm4Lr/premium-photo-1661957419081-a351c386b5fc-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend.jpg",
+        "service_name": "Book Recommendation",
+        "service_description": "Get personalized book recommendations tailored to your reading preferences.",
+        "service_provider_image": "https://i.ibb.co/5Y4Zm5s/premium-photo-1682093938494-f667af0b1bbe-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend.jpg",
+        "service_provider_name": "BookWorm Recommendations",
+        "service_area": "Worldwide",
+        "service_price": "$15.99"
+    },
+    {
+        "service_id": 2,
+        "service_image": "https://i.ibb.co/S6sNKN7/photo-1437572848259-df63caa1a552-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+        "service_name": "Book Club Membership",
+        "service_description": "Join our exclusive book club and enjoy monthly book discussions and recommendations.",
+        "service_provider_image": "https://i.ibb.co/c8frLFJ/premium-photo-1681490490493-935cd8a8f422-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend.jpg",
+        "service_provider_name": "Readers' Lounge",
+        "service_area": "US Only",
+        "service_price": "$9.99/month"
+    },
+    {
+        "service_id": 3,
+        "service_image": "https://i.ibb.co/nzcwjXP/photo-1517971129774-8a2b38fa128e-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+        "service_name": "Author Meet & Greet",
+        "service_description": "Get a chance to meet your favorite authors in an intimate setting.",
+        "service_provider_image": "https://i.ibb.co/Tv3mT99/photo-1578667343354-26a1de5bfe5a-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+        "service_provider_name": "Bookish Events",
+        "service_area": "Select Cities",
+        "service_price": "$49.99"
+    },
+    {
+        "service_id": 4,
+        "service_image": "https://i.ibb.co/ZTPhPhd/photo-1527285286036-1ae743926077-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+        "service_name": "Book Subscription Box",
+        "service_description": "Receive a curated box of books and bookish goodies every month.",
+        "service_provider_image": "https://i.ibb.co/RyXXQKd/photo-1496635594438-0cabe903998e-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+        "service_provider_name": "Bookish Delights",
+        "service_area": "US and Canada",
+        "service_price": "$29.99/month"
+    },
+    {
+        "service_id": 5,
+        "service_image": "https://i.ibb.co/ZH36grR/photo-1507587396692-5afe1f777676-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+        "service_name": "Book Binding & Restoration",
+        "service_description": "Restore and preserve your old and cherished books with expert bookbinders.",
+        "service_provider_image": "https://i.ibb.co/wLd0RHq/photo-1529016912215-a4c95c80d1dc-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+        "service_provider_name": "BookBind Masters",
+        "service_area": "Worldwide",
+        "service_price": "$99.99/book"
+    },
+    {
+        "service_id": 6,
+        "service_image": "https://i.ibb.co/DRYNcp0/photo-1520137422827-6253b606667b-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+        "service_name": "Literary Events Planning",
+        "service_description": "Organize book-themed events and literary gatherings with our event planning services.",
+        "service_provider_image": "https://i.ibb.co/3zg1xKj/photo-1517401220137-9462c929bf9f-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+        "service_provider_name": "LitEvents Pro",
+        "service_area": "Customized Packages",
+        "service_price": "Varies"
+    }
+]
