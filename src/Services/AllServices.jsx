@@ -20,9 +20,7 @@ const AllServices = ({service}) => {
 
   return (
     <div>
-      <div
-        className="relative flex w-76 h-76 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
-        data-aos="zoom-out-down">
+      <div className="relative flex w-76 h-76 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
         <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
           <img src={service_image_url} className="h-full w-full object-cover" />
         </div>
