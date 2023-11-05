@@ -6,6 +6,7 @@ const AllService = () => {
   const initialServices = useLoaderData();
   const [services, setServices] = useState(initialServices);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showMore, setShowMore] = useState(false);
 
   const handleSearch = () => {
     const filteredServices = initialServices.filter((service) =>
@@ -13,6 +14,12 @@ const AllService = () => {
     );
     setServices(filteredServices);
   };
+
+  const handleShowMore = () => {
+    setShowMore(true);
+  };
+
+  const visibleServices = showMore ? services : services.slice(0, 3);
 
   return (
     <div>
@@ -42,14 +49,18 @@ const AllService = () => {
           {services.length === 0 ? (
             <p className="text-center text-red-500">No data found.</p>
           ) : (
-            services?.map((service) => (
+            visibleServices?.map((service) => (
               <AllServiceList key={service.service_id} service={service} />
             ))
           )}
         </div>
-        <button className="bg-[green] hover:bg-[blue] font-avenir text-[white] rounded px-5 py-2">
-          Show More
-        </button>
+        {!showMore && services.length > 3 && (
+          <button
+            onClick={handleShowMore}
+            className="bg-[green] hover:bg-[blue] font-avenir text-[white] rounded px-5 py-2">
+            Show More
+          </button>
+        )}
       </div>
     </div>
   );

@@ -42,12 +42,13 @@ const SingleServiceDetail = ({service}) => {
 
             <img src={service_provider_image} className="w-35 h-16 rounded" />
           </div>
-          <div>
+          <div className="flex items-center justify-between">
             <Link to={`/services/${service_id}`}>
               <button className="bg-[red] hover:bg-[green] font-avenir text-[white] rounded px-5 py-2">
                 Book Now
               </button>
             </Link>
+            <p>{service_area}</p>
           </div>
         </div>
       </div>
