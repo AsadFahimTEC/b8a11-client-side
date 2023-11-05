@@ -8,11 +8,13 @@ import PrivateRoute from "./PrivateRoute";
 import AllService from "../AllService/AllService";
 import SingleService from "../SingleService/SingleService";
 import AddProduct from "../AddProduct/AddProduct";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -20,7 +22,7 @@ const router = createBrowserRouter([
         loader: () => fetch("/services.json"),
       },
       {
-        path: "/addproduct",
+        path: "/addservice",
         element: (
           <PrivateRoute>
             <AddProduct></AddProduct>

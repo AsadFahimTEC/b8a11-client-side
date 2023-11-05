@@ -105,7 +105,7 @@ const NavBar = () => {
                         </li>
                         <li>
                           <a
-                            href="/addproduct"
+                            href="/addservice"
                             className="block px-4 py-2 text-black">
                             Add Services
                           </a>
