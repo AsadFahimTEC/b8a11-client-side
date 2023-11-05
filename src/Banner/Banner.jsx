@@ -43,7 +43,7 @@ const Sliders = () => {
   };
 
   return (
-    <div className="slider-container mt-6 ml-6 mr-6 flex flex-col md:flex-row">
+    <div className="slider-container text-white bg-green-900 mt-6 ml-6 mr-6 flex flex-col md:flex-row">
       <div className="slider-content w-full md:w-3/4">
         <Slider {...settings} afterChange={handleSlideChange}>
           {slides.map((slide, index) => (

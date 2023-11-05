@@ -1,7 +1,7 @@
 import "./Contact.css";
 const Contact = () => {
   return (
-    <div className="mt-2">
+    <div className="mt-2 text-black bg-purple-600">
       <div className="row">
         <h1>Our Team</h1>
       </div>

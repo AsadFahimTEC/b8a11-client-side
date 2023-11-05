@@ -1,21 +1,41 @@
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import logo from "../../src/assets/logo2.png";
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import {AuthContext} from "../Hook/AuthProvider";
 
 const NavBar = () => {
   const {user, logOut} = useContext(AuthContext);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
 
   // sign out a user
   const handleLogOut = () => {
     logOut().then().catch();
   };
 
+  const navLinks = (
+    <>
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to="/services">Services</NavLink>
+      </li>
+    </>
+  );
+
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-yellow-300 text-blue-900">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <label tabIndex={0} className="btn btn-ghost text-red-500 lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -32,66 +52,91 @@ const NavBar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-blue-500 rounded-box w-52">
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/services">Services</Link>
-            </li>
-            {/* <li>
-              <Link to="/login">Login</Link>
-            </li> */}
+            className="menu font-avenir menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-blue-500 rounded-box w-52">
+            {navLinks}
           </ul>
         </div>
-        <img className="w-25 h-16" src={logo} alt="" />
-        <a className="text-xl font-bold hover:text-green-600">BookStore</a>
+        <h6 className="normal-case text-[#000] font-montserrat font-bold text-xl">
+          BookStore
+        </h6>
+        <div className="ml-4">
+          <img className="w-14 h-10 sm:w-16 sm:h-10" src={logo} alt="logo" />
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/services">Services</Link>
-          </li>
-          {/* <li>
-            <Link to="/login">Login</Link>
-          </li> */}
-        </ul>
-        <div className="navbar-end">
-          {user?.displayName ? (
-            <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                <div className="w-10 rounded-full">
-                  <img src={user.photoURL} alt={user.displayName} />
-                </div>
-              </label>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                <li>
-                  <button className="btn btn-sm  btn-ghost">
-                    {user.displayName}
-                  </button>
-                </li>
-                <li>
+        <ul className="menu font-avenir menu-horizontal px-1">{navLinks}</ul>
+      </div>
+
+      <div className="navbar-end">
+        {user?.displayName ? (
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img src={user.photoURL} alt={user.displayName} />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+              <li>
+                <button className="btn btn-sm  btn-ghost">
+                  {user.displayName}
+                </button>
+              </li>
+
+              <li>
+                <div className="relative inline-block">
                   <button
-                    onClick={handleLogOut}
-                    className="font-avenir mr-10 px-2 py-1 rounded bg-purple-800 text-white">
-                    Log out
+                    className="font-avenir mr-10 px-2 py-1 rounded text-black"
+                    onClick={toggleDropdown}>
+                    Dashboard
                   </button>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <Link to="/login">
-              <button className="font-avenir mr-10 px-3 py-1 rounded bg-purple-800 text-white">
-                Login
-              </button>
-            </Link>
-          )}
-        </div>
+                  {isDropdownOpen && (
+                    <div
+                      className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg"
+                      onClick={closeDropdown}>
+                      <ul className="p-2">
+                        <li>
+                          <a
+                            href="/myservices"
+                            className="block px-4 py-2 text-black">
+                            My Services
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/addservices"
+                            className="block px-4 py-2 text-black">
+                            Add Services
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/myschedules"
+                            className="block px-4 py-2 text-black">
+                            My Schedules
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+
+                <button
+                  onClick={handleLogOut}
+                  className="font-avenir mt-2 mr-10 px-2 py-1 rounded bg-purple-800 text-white">
+                  Log out
+                </button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <Link to="/login">
+            <button className="font-avenir mr-10 px-3 py-1 rounded bg-purple-800 text-white">
+              Login
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

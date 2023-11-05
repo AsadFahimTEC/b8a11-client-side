@@ -25,7 +25,7 @@ const AllService = () => {
   return (
     <div>
       <div className="py-10 mx-5 md:mx-15 my-5 md:my-15">
-        <h2 className="text-center text-white text-6xl font-montserrat">
+        <h2 className="text-center text-black text-6xl font-montserrat">
           All Services
         </h2>
 

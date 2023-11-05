@@ -1,7 +1,7 @@
 import "./About.css";
 const About = () => {
   return (
-    <div className="mt-4">
+    <div className="mt-4 text-white bg-red-600">
       <div className="about-section">
         <div className="container">
           <div className="row">
