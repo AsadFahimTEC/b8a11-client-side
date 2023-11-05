@@ -10,9 +10,10 @@ const AllService = () => {
 
   const handleSearch = () => {
     const filteredServices = initialServices.filter((service) =>
-      service.category?.toLowerCase().includes(searchQuery.toLowerCase())
+      service.service_name?.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setServices(filteredServices);
+    setShowMore(false);
   };
 
   const handleShowMore = () => {
