@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 
 const AllServiceList = ({service}) => {
+ 
   const {
     service_image,
     service_name,
