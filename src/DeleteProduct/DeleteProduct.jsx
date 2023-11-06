@@ -6,30 +6,54 @@ const DeleteProduct = ({cart, setUpdated}) => {
   const navigate = useNavigate();
 
   const handleDeleteProduct = (id) => {
-    fetch(`http://localhost:5000/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.deletedCount > 0) {
-          Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
-          }).then((result) => {
-            if (result.isConfirmed) {
-              setUpdated(true);
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
-            }
-            navigate("/services");
-          });
-        }
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log("confirmed");
+        // fetch(`http://localhost:5000/brands/${id}`, {
+        //     method: "DELETE",
+        //   })
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //       console.log(data);
+        //       if (data.deletedCount > 0) {
+        //         setUpdated(true);
+        //         Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        //       }
+        //     })
+      }
+    });
+
+    // fetch(`http://localhost:5000/brands/${id}`, {
+    //   method: "DELETE",
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     if (data.deletedCount > 0) {
+    //       Swal.fire({
+    //         title: "Are you sure?",
+    //         text: "You won't be able to revert this!",
+    //         icon: "warning",
+    //         showCancelButton: true,
+    //         confirmButtonColor: "#3085d6",
+    //         cancelButtonColor: "#d33",
+    //         confirmButtonText: "Yes, delete it!",
+    //       }).then((result) => {
+    //         if (result.isConfirmed) {
+    //           setUpdated(true);
+    //           Swal.fire("Deleted!", "Your file has been deleted.", "success");
+    //         }
+    //       });
+    //     }
+    //   });
   };
 
   return (

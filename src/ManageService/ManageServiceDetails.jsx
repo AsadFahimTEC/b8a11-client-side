@@ -1,7 +1,35 @@
 import {Link} from "react-router-dom";
+import Swal from "sweetalert2";
 
-const ManageServiceDetails = ({service}) => {
+const ManageServiceDetails = ({service, setUpdated}) => {
   const {_id, description, name, photo, price, servicearea} = service || {};
+
+  const handleDeleteProduct = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log("confirmed");
+        fetch(`http://localhost:5000/brands/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              setUpdated(true);
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="ml-10 mr-10">
@@ -46,11 +74,12 @@ const ManageServiceDetails = ({service}) => {
                 Update
               </button>
             </Link>
-            <Link to={`/deleteproduct/${_id}`}>
-              <button className="bg-[green] hover:bg-[red] font-avenir text-[white] rounded px-5 py-2">
-                Delete
-              </button>
-            </Link>
+
+            <button
+              onClick={() => handleDeleteProduct(_id)}
+              className="bg-[green] hover:bg-[red] font-avenir text-[white] rounded px-5 py-2">
+              Delete
+            </button>
           </div>
         </div>
       </div>
