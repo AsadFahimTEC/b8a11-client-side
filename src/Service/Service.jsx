@@ -6,6 +6,7 @@ const Service = () => {
   const [service, setService] = useState(null);
   const {id} = useParams();
   const services = useLoaderData();
+  // console.log(services);
 
   useEffect(() => {
     const findService = services?.find((service) => service.id === id);

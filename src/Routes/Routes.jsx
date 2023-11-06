@@ -9,6 +9,7 @@ import AllService from "../AllService/AllService";
 import SingleService from "../SingleService/SingleService";
 import AddProduct from "../AddProduct/AddProduct";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import ManageService from "../ManageService/ManageService";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,15 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddProduct></AddProduct>
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/brands"),
+      },
+      {
+        path: "/manageservice",
+        element: (
+          <PrivateRoute>
+            <ManageService></ManageService>
           </PrivateRoute>
         ),
         loader: () => fetch("http://localhost:5000/brands"),

@@ -38,7 +38,8 @@ const AddProduct = () => {
       userName,
     };
 
-    console.log(product);
+    // console.log(product);
+
     fetch("http://localhost:5000/brands", {
       method: "POST",
       headers: {
