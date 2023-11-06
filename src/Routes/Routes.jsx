@@ -10,6 +10,9 @@ import SingleService from "../SingleService/SingleService";
 import AddProduct from "../AddProduct/AddProduct";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import ManageService from "../ManageService/ManageService";
+import UpdateProduct from "../UpdateProduct/UpdateProduct";
+import DeleteProduct from "../DeleteProduct/DeleteProduct";
+// import UpdateProduct from "../UpdateProduct/UpdateProduct";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +69,26 @@ const router = createBrowserRouter([
         path: "/services/:service_id",
         element: <SingleService></SingleService>,
         loader: () => fetch("/AllService.json"),
+      },
+      {
+        path: "/updateproduct/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateProduct></UpdateProduct>
+          </PrivateRoute>
+        ),
+        loader: ({params}) =>
+          fetch(`http://localhost:5000/brands/${params.id}`),
+      },
+      {
+        path: "/deleteproduct/:id",
+        element: (
+          <PrivateRoute>
+            <DeleteProduct></DeleteProduct>
+          </PrivateRoute>
+        ),
+        loader: ({params}) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
       },
     ],
   },

@@ -41,12 +41,12 @@ const ManageServiceDetails = ({service}) => {
             </h3>
           </div>
           <div className="flex justify-between items-center">
-            <Link to={`/services/${_id}`}>
+            <Link to={`/updateproduct/${_id}`}>
               <button className="bg-[blue] hover:bg-[green] font-avenir text-[white] rounded px-5 py-2">
                 Update
               </button>
             </Link>
-            <Link to={`/services/${_id}`}>
+            <Link to={`/deleteproduct/${_id}`}>
               <button className="bg-[green] hover:bg-[red] font-avenir text-[white] rounded px-5 py-2">
                 Delete
               </button>
