@@ -1,9 +1,10 @@
-import {Link, NavLink} from "react-router-dom";
+import {Link, NavLink, useParams} from "react-router-dom";
 import logo from "../../src/assets/logo2.png";
 import {useContext, useState} from "react";
 import {AuthContext} from "../Hook/AuthProvider";
 
 const NavBar = () => {
+
   const {user, logOut} = useContext(AuthContext);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -97,25 +98,25 @@ const NavBar = () => {
                       onClick={closeDropdown}>
                       <ul className="p-2">
                         <li>
-                          <a
-                            href="/manageservice"
+                          <Link
+                            to="/manageservice"
                             className="block px-4 py-2 text-black">
                             My Services
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a
-                            href="/addservice"
+                          <Link
+                            to="/addservice"
                             className="block px-4 py-2 text-black">
                             Add Services
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a
-                            href="/myschedules"
+                          <Link
+                            to="/book/id"
                             className="block px-4 py-2 text-black">
                             My Schedules
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </div>
