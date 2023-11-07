@@ -1,5 +1,5 @@
 // import {useEffect} from "react";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 // import "aos/dist/aos.css";
 // import Aos from "aos";
 
@@ -7,6 +7,7 @@ const AllServices = ({service}) => {
   //   useEffect(() => {
   //     Aos.init({duration: 2000});
   //   }, []);
+
   const {
     service_id,
     service_name,

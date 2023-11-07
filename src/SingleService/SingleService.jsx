@@ -4,13 +4,13 @@ import SingleServiceDetail from "./SingleServiceDetail";
 
 const SingleService = () => {
   const [service, setService] = useState(null);
-  const {id} = useParams();
+  const {service_id} = useParams();
   const services = useLoaderData();
 
   useEffect(() => {
-    const findService = services?.find((service) => service.id === id);
-    setService(findService);
-  }, [id, services]);
+    const findService = services?.filter((service) => service.service_id == service_id);
+    setService(findService[0]);
+  }, [service_id, services]);
 
   return (
     <div>

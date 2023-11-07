@@ -4,14 +4,17 @@ import ServiceDetails from "./ServiceDetails";
 
 const Service = () => {
   const [service, setService] = useState(null);
-  const {id} = useParams();
+  const {service_id} = useParams();
   const services = useLoaderData();
-  // console.log(services);
+  // console.log(services, service_id);
 
   useEffect(() => {
-    const findService = services?.find((service) => service.id === id);
-    setService(findService);
-  }, [id, services]);
+    const findService = services?.filter((service) => service.service_id
+    == service_id);
+    // console.log(findService);
+    setService(findService[0]);
+  }, [service_id, services]);
+  // console.log(services);
 
   return (
     <div>
