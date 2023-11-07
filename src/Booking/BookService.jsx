@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Caruosel from "./Caruosel";
 
 // Create a component to display service details
 const ServiceDetail = ({ service, onStatusChange }) => (
@@ -13,6 +14,7 @@ const ServiceDetail = ({ service, onStatusChange }) => (
       <select
         value={service.status}
         onChange={(e) => onStatusChange(service.service_id, e.target.value)}
+        className={`border rounded p-1`}
       >
         <option className="bg-white text-red-700" value="Pending">Pending</option>
         <option className="bg-white text-blue-700" value="In Progress">In Progress</option>
@@ -63,7 +65,9 @@ const BookService = () => {
 
   return (
     <div className="mt-6">
-      <h2 className="text-center font-bold font-sans text-3xl">Booked Services</h2>
+        <h2 className="mt-3 text-center font-bold font-sans text-3xl">Our Book Carousel</h2>
+        <Caruosel></Caruosel>
+      <h2 className="mt-6 text-center font-bold font-sans text-3xl">Booked Services</h2>
 
       {loading ? (
         <p>Loading booked services...</p>

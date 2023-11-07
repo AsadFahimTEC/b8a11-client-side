@@ -7,7 +7,6 @@ const AllServices = ({service}) => {
   //   useEffect(() => {
   //     Aos.init({duration: 2000});
   //   }, []);
-
   const {
     service_id,
     service_name,
