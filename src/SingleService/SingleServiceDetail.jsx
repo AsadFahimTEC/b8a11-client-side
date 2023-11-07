@@ -1,6 +1,9 @@
-import {Link} from "react-router-dom";
+
+import Swal from "sweetalert2";
+
 
 const SingleServiceDetail = ({service}) => {
+
   const {
     service_image,
     service_name,
@@ -11,6 +14,30 @@ const SingleServiceDetail = ({service}) => {
     service_id,
     service_price,
   } = service || {};
+
+
+
+  const handleBookService = () =>{
+    fetch("http://localhost:5000/bookings", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(service),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "success",
+            text: "Product Booked Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      })
+  }
 
   return (
     <div className="mt-6 mr-6 ml-6">
@@ -43,11 +70,11 @@ const SingleServiceDetail = ({service}) => {
             <img src={service_provider_image} className="w-35 h-16 rounded" />
           </div>
           <div className="flex items-center justify-between">
-            <Link to={`/book/${service_id}`}>
-              <button className="bg-[red] hover:bg-[green] font-avenir text-[white] rounded px-5 py-2">
+            
+              <button onClick={handleBookService} className="bg-[red] hover:bg-[green] font-avenir text-[white] rounded px-5 py-2">
                 Book Now
               </button>
-            </Link>
+            
             <p>{service_area}</p>
           </div>
         </div>

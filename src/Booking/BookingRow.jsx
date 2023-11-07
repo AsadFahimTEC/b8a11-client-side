@@ -1,14 +1,23 @@
 
 
-const BookingRow = ({ booking,handleDelete, handleBookingConfirm }) => {
-    const { _id,date, service, price, img, status } = booking;
+const BookingRow = ({ service,handleDelete, handleBookingConfirm }) => {
+    const {
+        service_image,
+        service_name,
+        service_description,
+        service_provider_image,
+        service_provider_name,
+        service_area,
+        service_id,
+        service_price,
+      } = service || {};
   
    
   
     return (
       <tr>
         <th>
-          <button onClick={() =>handleDelete(_id)} className="btn btn-sm">
+          <button onClick={() =>handleDelete(service_id)} className="btn btn-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -29,18 +38,18 @@ const BookingRow = ({ booking,handleDelete, handleBookingConfirm }) => {
           <div className="flex items-center space-x-3">
             <div className="avatar">
               <div className="rounded w-24 h-24">
-                {img && <img src={img} alt="Avatar Tailwind CSS Component" />}
+                {service_image && <img src={service_image} alt="Avatar Tailwind CSS Component" />}
               </div>
             </div>
           </div>
         </td>
-        <td>{service}</td>
-        <td>{date}</td>
-        <td>${price}</td>
+        <td>{service_name}</td>
+        <td>{ service_provider_name}</td>
+        <td>${service_price}</td>
         <th>
          {
           status === 'confirm' ? <span className="font-bold text-primary">Confirmed</span> :
-          <button onClick={() => handleBookingConfirm(_id)} className="btn btn-ghost btn-xs">Please Confirm</button>
+          <button onClick={() => handleBookingConfirm(service_id)} className="btn btn-ghost btn-xs">Please Confirm</button>
          }
         </th>
       </tr>

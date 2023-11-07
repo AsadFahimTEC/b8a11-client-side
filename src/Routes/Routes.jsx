@@ -21,7 +21,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement: <ErrorPage></ErrorPage>,
+    // errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -98,7 +98,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute>
           <BookService></BookService>
         </PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/brands/${params.id}`)
+        // loader: ({params}) => fetch(`http://localhost:5000/brands/${params.id}`)
       },
 
       {

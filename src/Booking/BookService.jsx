@@ -1,121 +1,103 @@
-import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-import toast from "react-hot-toast";
-import { AuthContext } from "../Hook/AuthProvider";
-
+// Create a component to display service details
+const ServiceDetail = ({ service, onStatusChange }) => (
+  <tr key={service.id}>
+    <td>{service.service_name}</td>
+    <img className="ml-3 w-25 h-10" src={service.service_image} alt="" />
+    <td>{service.service_description}</td>
+    <td>{service.service_area}</td>
+    <td>{service.service_price}</td>
+    <td>
+      <select
+        value={service.status}
+        onChange={(e) => onStatusChange(service.service_id, e.target.value)}
+      >
+        <option className="bg-white text-red-700" value="Pending">Pending</option>
+        <option className="bg-white text-blue-700" value="In Progress">In Progress</option>
+        <option className="bg-white text-green-800" value="Completed">Completed</option>
+      </select>
+    </td>
+    {/* Add more columns for additional details */}
+  </tr>
+);
 
 const BookService = () => {
-    const {user} = useContext(AuthContext);
-    const service = useLoaderData();
-  const {  service_image,
-    service_name,
-    service_description,
-    service_provider_image,
-    service_provider_name,
-    service_area,
-    service_id,
-    service_price, } = service;
+  const { id } = useParams();
+  const [bookedServices, setBookedServices] = useState([]);
+  const [loading, setLoading] = useState(true);
 
- const handleBookService = event =>{
-    event.preventDefault();
-    const form = event.target;
-    const name = form.name.value;
+  useEffect(() => {
+    const fetchBookedServices = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/bookings");
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
 
-    const photo = form.photo.value;
-    const price = form.price.value;
-    const description = form.description.value;
-    const servicearea = form.servicearea.value;
-    const userEmail = user?.email;
-    const userName = user?.DisplayName;
-    const booking = {
-    customerName: name,
-    usersName: userName,
-    userEmail,
-    photo,
-    price,
-    service_description: description,
-    service_area: servicearea,
-    Price: price
-  }
-  console.log(booking);
-  fetch('http://localhost:5000/bookings', {
-    method: 'POST',
-    headers: {
-        'content-type': 'application/json'
-    },
-    body: JSON.stringify(booking)
-  })
-  .then(res => res.json())
-  .then(data =>{
-    console.log(data);
-    if(data.insertedId){
-        toast.success('Service Book Successfully!')
-    }
-  })
- }
+        const data = await response.json();
+        setBookedServices(data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching booked services:", error);
+        setLoading(false);
+      }
+    };
 
-    return (
-        <div>
-      <h2>Book Service: {name} </h2>
+    fetchBookedServices();
+  }, [id]);
 
-        <form onSubmit={handleBookService} className="card-body">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="form-control">
-            <label className="label">
-              <span className="label-text">Name</span>
-            </label>
-            <input
-              type="text"
-              placeholder="name" name="name"
-              className="input input-bordered"
-              required
-            />
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Description</span>
-            </label>
-            <input
-              type="text" name="des"
-              placeholder="des"
-              className="input input-bordered"
-              required
-            />
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Email</span>
-            </label>
-            <input
-              type="email" name="email" defaultValue={user?.email}
-              placeholder="email"
-              className="input input-bordered"
-              required
-            />
-          </div>
-          <div className="form-control">
-            <label className="label">
-              <span className="label-text">Service Area</span>
-            </label>
-            <input
-              type="text" name="due" defaultValue={service_area}
-              placeholder="due amount"
-              className="input input-bordered"
-              required
-            />
-          </div>
-          <div className="form-control mt-6">
-            <input
-              className="btn btn-block btn-primary"
-              type="submit"
-              value="Order Confirm"
-            />
-          </div>
-            </div>
-        </form>
-      </div>
-    );
+  // Function to handle status change
+  const handleStatusChange = (id, newStatus) => {
+    const updatedServices = bookedServices.map((service) => {
+      if (service.id === id) {
+        return { ...service, status: newStatus };
+      }
+      return service;
+    });
+
+    setBookedServices(updatedServices);
+    // You can also make an API call to update the status in the backend here
+  };
+
+  return (
+    <div className="mt-6">
+      <h2 className="text-center font-bold font-sans text-3xl">Booked Services</h2>
+
+      {loading ? (
+        <p>Loading booked services...</p>
+      ) : bookedServices.length > 0 ? (
+        <table className="table w-full">
+          <thead>
+            <tr>
+              <th>Service Name</th>
+              <th>Service Image</th>
+              <th>Description</th>
+              <th>Service Area</th>
+              <th>Price</th>
+              <th>Status</th>
+              {/* Add more headers as needed */}
+            </tr>
+          </thead>
+          <tbody>
+            {bookedServices.map((service) => (
+              <ServiceDetail
+                service={service}
+                onStatusChange={handleStatusChange}
+              />
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>No booked services found.</p>
+      )}
+
+      {/* Add more services dynamically */}
+      <h2 className="text-center font-bold font-sans text-xl mt-6">Other Services</h2>
+      {/* Render more services here using the ServiceDetail component */}
+    </div>
+  );
 };
 
 export default BookService;
