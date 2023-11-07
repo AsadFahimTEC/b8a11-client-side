@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+
 const Caruosel = () => {
     const settings = {
         dots: true,
@@ -29,7 +30,7 @@ const Caruosel = () => {
         },
         {
           image:
-            "https://i.ibb.co/ZTPhPhd/photo-1527285286036-1ae743926077-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
+            "https://i.ibb.co/nzcwjXP/photo-1517971129774-8a2b38fa128e-auto-format-fit-crop-q-60-blend-000000-blend-alpha-10-blend-mode-no.jpg",
             "service_name": "Book Subscription Box",
           title: " Journey Reads",
           description:
