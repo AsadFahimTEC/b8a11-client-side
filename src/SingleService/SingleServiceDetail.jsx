@@ -1,7 +1,9 @@
 
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const SingleServiceDetail = ({ service }) => {
+  const navigate = useNavigate();
   const {
     service_image,
     service_name,
@@ -33,6 +35,7 @@ const SingleServiceDetail = ({ service }) => {
           });
         }
       });
+      navigate('/book');
   };
 
   return (
