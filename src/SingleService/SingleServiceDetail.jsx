@@ -1,11 +1,7 @@
 
-
-
 import Swal from "sweetalert2";
 
-const SingleServiceDetail = ({service}) => {
-
-
+const SingleServiceDetail = ({ service }) => {
   const {
     service_image,
     service_name,
@@ -17,12 +13,7 @@ const SingleServiceDetail = ({service}) => {
     service_price,
   } = service || {};
 
-  
-  
-
-
-
-  const handleBookService = () =>{
+  const handleBookService = () => {
     fetch("http://localhost:5000/bookings", {
       method: "POST",
       headers: {
@@ -40,16 +31,16 @@ const SingleServiceDetail = ({service}) => {
             icon: "success",
             confirmButtonText: "Cool",
           });
-        
         }
-      })
-  }
+      });
+  };
 
   return (
     <div className="mt-6 mr-6 ml-6">
       <div
         className="relative flex w-76 h-76 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md"
-        data-aos="zoom-out-down">
+        data-aos="zoom-out-down"
+      >
         <div className="relative mx-4 mt-4 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
           <img src={service_image} className="h-full w-full object-cover" />
         </div>
@@ -76,12 +67,13 @@ const SingleServiceDetail = ({service}) => {
             <img src={service_provider_image} className="w-35 h-16 rounded" />
           </div>
           <div className="flex items-center justify-between">
-            
-              <button onClick={handleBookService} className="bg-[red] hover:bg-[green] font-avenir text-[white] rounded px-5 py-2">
-                Book Now
-              </button>
+            <button
+              onClick={handleBookService}
+              className="bg-[red] hover:bg-[green] font-avenir text-[white] rounded px-5 py-2"
+            >
+              Book Now
+            </button>
             <p>{service_area}</p>
-           
           </div>
         </div>
       </div>

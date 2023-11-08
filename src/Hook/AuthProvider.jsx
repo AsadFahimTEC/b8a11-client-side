@@ -66,7 +66,7 @@ const AuthProvider = ({ children }) => {
           });
       } else {
         axios
-          .post("hhttp://localhost:5000/logout", loggedUser, {
+          .post("http://localhost:5000/logout", loggedUser, {
             withCredentials: true,
           })
           .then((res) => {
