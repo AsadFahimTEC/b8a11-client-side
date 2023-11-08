@@ -16,7 +16,7 @@ const ManageServiceDetails = ({service, setUpdated}) => {
     }).then((result) => {
       if (result.isConfirmed) {
         console.log("confirmed");
-        fetch(`http://localhost:5000/brands/${id}`, {
+        fetch(`https://b8-a11-server-side.vercel.app/brands/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

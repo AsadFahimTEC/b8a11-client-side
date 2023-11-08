@@ -40,7 +40,7 @@ const BookService = () => {
   useEffect(() => {
     const fetchBookedServices = async () => {
       try {
-        const response = await fetch("http://localhost:5000/bookings");
+        const response = await fetch("https://b8-a11-server-side.vercel.app/bookings");
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }

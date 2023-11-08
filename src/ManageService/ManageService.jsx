@@ -1,4 +1,4 @@
-import {useLoaderData} from "react-router-dom";
+
 import ManageServiceDetails from "./ManageServiceDetails";
 import {useEffect, useState} from "react";
 
@@ -9,7 +9,7 @@ const ManageService = () => {
   const [updated, setUpdated] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/brands")
+    fetch("https://b8-a11-server-side.vercel.app/brands")
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, [services, updated]);

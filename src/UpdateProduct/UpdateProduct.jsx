@@ -13,7 +13,7 @@ const UpdateProduct = () => {
   const [defaultValue, setDefaultValue] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/brands/${id}`)
+    fetch(`http://b8-a11-server-side.vercel.app/brands/${id}`)
       .then((res) => res.json())
       .then((data) => setDefaultValue(data[0]));
   }, [id]);
@@ -35,7 +35,7 @@ const UpdateProduct = () => {
     const product = {name, photo, price, description, servicearea};
     console.log(product);
 
-    fetch(`http://localhost:5000/brands/${id}`, {
+    fetch(`https://b8-a11-server-side.vercel.app/brands/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

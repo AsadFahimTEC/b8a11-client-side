@@ -36,7 +36,7 @@ const router = createBrowserRouter([
             <AddProduct></AddProduct>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/brands"),
+        loader: () => fetch("https://b8-a11-server-side.vercel.app/brands"),
       },
       {
         path: "/manageservice",
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
             <ManageService></ManageService>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/brands"),
+        loader: () => fetch("https://b8-a11-server-side.vercel.app/brands"),
       },
       {
         path: "/login",
@@ -66,12 +66,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/services",
-        element: <AllService></AllService>,
+        
+        element: ( 
+        <PrivateRoute>
+        <AllService></AllService>
+        </PrivateRoute>
+        ),
         loader: () => fetch("/AllService.json"),
       },
       {
         path: "/services/:service_id",
-        element: <SingleService></SingleService>,
+        element: (
+          <PrivateRoute>
+        <SingleService></SingleService>
+        </PrivateRoute>
+        ),
         loader: () => fetch("/AllService.json"),
       },
       {
@@ -82,7 +91,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({params}) =>
-          fetch(`http://localhost:5000/brands/${params.id}`),
+          fetch(`https://b8-a11-server-side.vercel.app/brands/${params.id}`),
       },
       {
         path: "/deleteproduct/:id",
@@ -92,7 +101,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({params}) =>
-          fetch(`http://localhost:5000/brands/${params.id}`),
+          fetch(`https://b8-a11-server-side.vercel.app/brands/${params.id}`),
       },
       {
         path: '/book',

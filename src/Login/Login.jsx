@@ -3,7 +3,7 @@ import {useContext} from "react";
 import toast from "react-hot-toast";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import {AuthContext} from "../Hook/AuthProvider";
-import axios from 'axios';
+// import axios from 'axios';
 
 const Login = () => {
   const {signIn, googleSignIn} = useContext(AuthContext);
@@ -42,11 +42,11 @@ const Login = () => {
         e.target.reset();
 
         // navigate after login
-        // navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/");
         return toast.success("user login successfully");
 
         // get access token
-        // axios.post('http://localhost:5000/jwt', user,{withCredentials:true})
+        // axios.post('http://b8-a11-server-side.vercel.app/jwt', user,{withCredentials:true})
         // .then(res =>{
         //   console.log(res.data);
         //   if(res.data.success){
