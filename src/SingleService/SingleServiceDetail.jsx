@@ -1,8 +1,10 @@
 
+
+
 import Swal from "sweetalert2";
 
-
 const SingleServiceDetail = ({service}) => {
+
 
   const {
     service_image,
@@ -14,6 +16,9 @@ const SingleServiceDetail = ({service}) => {
     service_id,
     service_price,
   } = service || {};
+
+  
+  
 
 
 
@@ -35,6 +40,7 @@ const SingleServiceDetail = ({service}) => {
             icon: "success",
             confirmButtonText: "Cool",
           });
+        
         }
       })
   }
@@ -74,8 +80,8 @@ const SingleServiceDetail = ({service}) => {
               <button onClick={handleBookService} className="bg-[red] hover:bg-[green] font-avenir text-[white] rounded px-5 py-2">
                 Book Now
               </button>
-            
             <p>{service_area}</p>
+           
           </div>
         </div>
       </div>

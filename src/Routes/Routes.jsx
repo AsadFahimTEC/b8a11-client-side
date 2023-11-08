@@ -12,16 +12,17 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import ManageService from "../ManageService/ManageService";
 import UpdateProduct from "../UpdateProduct/UpdateProduct";
 import DeleteProduct from "../DeleteProduct/DeleteProduct";
-import MySchedule from "../MySchedule/MySchedule";
+// import MySchedule from "../MySchedule/MySchedule";
 import BookService from "../Booking/BookService";
-import Bookings from "../Booking/Bookings";
+// import Bookings from "../Booking/Bookings";
+import BookingRow from "../Booking/BookingRow";
 // import UpdateProduct from "../UpdateProduct/UpdateProduct";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    // errorElement: <ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -94,17 +95,16 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/brands/${params.id}`),
       },
       {
-        path: '/book/:id',
+        path: '/book',
         element: <PrivateRoute>
           <BookService></BookService>
         </PrivateRoute>,
         // loader: ({params}) => fetch(`http://localhost:5000/brands/${params.id}`)
       },
-
       {
-        path: '/bookings',
+        path: '/booking',
         element: <PrivateRoute>
-          <Bookings></Bookings>
+          <BookingRow></BookingRow>
         </PrivateRoute>
       }
       // {

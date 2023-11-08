@@ -113,7 +113,7 @@ const NavBar = () => {
                         </li>
                         <li>
                           <Link
-                            to="/myschedule"
+                            to="/book"
                             className="block px-4 py-2 text-black">
                             My Schedules
                           </Link>

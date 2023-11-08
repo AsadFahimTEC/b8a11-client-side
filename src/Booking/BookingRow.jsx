@@ -1,6 +1,6 @@
 
 
-const BookingRow = ({ service,handleDelete, handleBookingConfirm }) => {
+const BookingRow = ({ booking,handleDelete, handleBookingConfirm }) => {
     const {
         service_image,
         service_name,
