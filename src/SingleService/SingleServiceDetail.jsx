@@ -33,9 +33,9 @@ const SingleServiceDetail = ({ service }) => {
             icon: "success",
             confirmButtonText: "Cool",
           });
+          navigate('/book');
         }
       });
-      navigate('/book');
   };
 
   return (
